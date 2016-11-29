@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- Notification page. CSS and Bootstrap still needed :( -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Notification Board</title>
+  </head>
+
+  <body>
+
+    <!-- TITLE -->
+    <div id="title">
+      <h1> Notification Board </h1>
+    </div>
+
+    <!-- MAIN NOTIFICATION PANEL -->
+    <div id="main-panel" class="col-xs-8">
+
+      <!-- MAIN NOTIFICATION PANEL TITLE -->
+      <div id="main-title">
+        <h2> Create New Push Notification </h2>
+      </div>
+
+      <!-- NOTIFICATION INFORMATION -->
+      <div id="notification-info">
+        <form id="notification-form" action="index.html" method="post">
+          <label for="phone-id">Phone Id</label>
+          <input type="text" name="phone-id" value="">
+          <label for="notification">Notification Body</label>
+          <input type="text" name="notification" value="">
+
+          <!-- Postal codes to send (must be dynamic)-->
+          <label for="zip1-1">Zip1</label>
+          <input type="text" name="zip1-1" value="">
+          <label for="zip1-2">Zip2</label>
+          <input type="text" name="zip1-2" value="">
+          <button type="button" name="button"> Add Postal Code </button>
+        </form>
+      </div>
+
+      <!-- ACTION INPUT (SEND, SAVE)-->
+      <div id="send-panel">
+        <button type="button" name="button"> Send! </button>
+      </div>
+      <div id="save-panel">
+        <button type="button" name="button"> Save Notification </button>
+      </div>
+
+    </div>
+
+    <!-- NOTIFICATION LIST PANEL-->
+    <div id="notifiaction-list-panel" class="col-xs-4">
+
+      <!-- NOTIFICATION LIST TITLE -->
+      <div id="notification-list-title">
+        <h2> Saved Notification List </h2>
+      </div>
+
+      <!-- NOTIFICATION LIST -->
+      <ul id="notification-list">
+        <li> Notification #1 </li>
+        <li> Notification #2 </li>
+        <li> Notification #3 </li>
+      </ul>
+    </div>
+
+  </body>
+
+</html>
