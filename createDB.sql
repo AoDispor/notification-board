@@ -5,8 +5,7 @@ senddate DATETIME
 );
 
 CREATE table codigoPostal{
-codigoPostalId INTEGER PRIMARY KEY AUTOINCREMENT,
-cp4 VARCHAR(4)
+codigoPostalId INTEGER PRIMARY KEY
 }
 
 CREATE table joinCodigoPostalNotifications{
