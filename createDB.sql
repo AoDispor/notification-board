@@ -1,21 +1,22 @@
+drop table IF EXISTS joinPostalCodeNotifications;
+drop table IF EXISTS postalCode;
 drop table IF EXISTS notifications;
+
+
 CREATE table notifications(
 notificationId INTEGER PRIMARY KEY AUTO_INCREMENT,
 username VARCHAR(50),
 sentdate DATETIME
 );
 
-
-drop table IF EXISTS codigoPostal;
-CREATE table codigoPostal(
-codigoPostalId INTEGER PRIMARY KEY
+CREATE table postalCode(
+postalCodeId INTEGER PRIMARY KEY
 );
 
-drop table IF EXISTS joinCodigoPostalNotifications;
-CREATE table joinCodigoPostalNotifications(
-notifID INTEGER,
-codPostalId INTEGER,
-FOREIGN KEY (notifID) REFERENCES notifications(notificationId) ON DELETE CASCADE,
-FOREIGN KEY (codPostalId) REFERENCES codigoPostal(codigoPostalId) ON DELETE CASCADE,
-PRIMARY KEY (notifID,codPostalId)
+CREATE table joinPostalCodeNotifications(
+notificationRef INTEGER,
+postalCodeRef INTEGER,
+FOREIGN KEY (notificationRef) REFERENCES notifications(notificationId) ,
+FOREIGN KEY (postalCodeRef) REFERENCES postalCode(postalCodeId) ,
+PRIMARY KEY (notificationRef,postalCodeRef)
 );
