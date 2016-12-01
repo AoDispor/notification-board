@@ -1,0 +1,149 @@
+/* COLORS */
+
+.bg-ao-dispor-1 {
+  background-color: #00A8C6;
+}
+
+.bg-ao-dispor-2 {
+  background-color: #6BD9E5;
+}
+
+.bg-ao-dispor-3 {
+  background-color: #00CE5D;
+}
+
+.txt-ao-dispor-1 {
+  color: #00A8C6;
+}
+
+.txt-ao-dispor-2 {
+  color: #6BD9E5;
+}
+
+.txt-ao-dispor-3 {
+  color: #00CE5D;
+}
+
+/* FONTS */
+
+@font-face {
+    font-family: aoDispor1;
+    src: url(fonts/dancing-script-ot/DancingScript-Regular.otf);
+}
+
+@font-face {
+    font-family: aoDispor2;
+    src: url(fonts/Yanone-Kaffeesatz/Yanone-Kaffeesatz-Regular.otf);
+}
+
+/* TAGS */
+
+body {
+  background-color: #EEEEEE;
+}
+
+h1 {
+  display: inline-block;
+}
+
+h4 {
+  display: inline-block;
+}
+
+ul {
+  -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
+  list-style: none;
+  padding: 0;
+  overflow: scroll;
+}
+
+li {
+  padding: 2rem;
+  border-bottom: solid 0.2rem #EEEEEE;
+}
+
+
+/* CLASSES */
+
+.panel {
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+}
+
+/* IDENTIFIERS */
+
+#main-container {
+  margin: 20rem;
+  margin-top: 10rem;
+}
+
+#title {
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  padding-left: 20rem;
+  padding-right: 20rem;
+  background-color: white;
+  font-family: aoDispor1;
+}
+
+#main-title {
+  font-family: aoDispor2;
+}
+
+#main-panel {
+  border-right: solid 0.2rem #DDDDDD;
+}
+
+#notification-info {
+  padding-right: 5rem;
+  border-bottom: solid 0.2rem #EEEEEE;
+}
+
+#notification-list-title {
+  font-family: aoDispor2;
+}
+
+#postal-button {
+  color: white;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+#button-panel {
+  height: 4rem;
+  position: relative;
+  margin-top: 2rem;
+}
+
+#send-panel {
+  vertical-align: middle;
+  position: absolute;
+  left: 0;
+  display: inline-block;
+}
+
+#send-panel > button {
+  font-size: 2rem;
+}
+
+#save-panel {
+  vertical-align: middle;
+  position: absolute;
+  right: 0;
+  display: inline-block;
+}
+
+#save-panel > button {
+  font-size: 2rem;
+}
