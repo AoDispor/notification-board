@@ -107,7 +107,6 @@ li {
 
 #notification-info {
   padding-right: 5rem;
-  border-bottom: solid 0.2rem #EEEEEE;
 }
 
 #notification-list-title {
@@ -121,9 +120,10 @@ li {
 }
 
 #button-panel {
-  height: 4rem;
+  border-top: solid 0.2rem #EEEEEE;
+  height: 6rem;
   position: relative;
-  margin-top: 2rem;
+  padding-top: 2rem;
 }
 
 #send-panel {

@@ -5,6 +5,10 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="styles.css"/>
+    <!-- SCRIPTS -->
+    <script src="jquery-3.1.1-dist/jquery-3.1.1.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
     <title>Ao Dispor | Notification Board</title>
   </head>
 
@@ -34,20 +38,25 @@
               <input class="form-control" type="text" name="notification" value="">
 
               <!-- Postal codes to send (must be dynamic)-->
-              <label for="zip1-1">Zip1</label>
-              <input class="form-control" type="text" name="zip1-1" value="">
-              <button id="postal-button" class="btn btn-success" type="button" name="button"> + Add Postal Code </button>
-            </form>
-          </div>
+              <div id="zip-codes">
+                <div id="zip-template">
+                  <label for="zip1-1">Zip 1</label>
+                  <input class="form-control" type="text" name="zip1-1" value="">
+                </div>
+              </div>
+              <button id="postal-button" class="btn btn-success" type="button" name="button"> + New Postal Code </button>
 
-          <!-- ACTION INPUT (SEND, SAVE)-->
-          <div id="button-panel">
-            <div id="send-panel">
-              <button class="btn btn-info" type="button" name="button"> Send! </button>
-            </div>
-            <div id="save-panel">
-              <button class="btn btn-warning" type="button" name="button"> Save </button>
-            </div>
+              <!-- ACTION INPUT (SEND, SAVE)-->
+              <div id="button-panel">
+                <div id="send-panel">
+                  <button class="btn btn-info" type="submit" name="button"> Send! </button>
+                </div>
+                <div id="save-panel">
+                  <button class="btn btn-warning" type="button" name="button"> Save </button>
+                </div>
+              </div>
+
+            </form>
           </div>
 
         </div>
@@ -72,9 +81,5 @@
     </div>
 
   </body>
-
-  <!-- SCRIPTS -->
-  <script src="jquery-3.1.1-dist/jquery-3.1.1.min.js"></script>
-  <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
 </html>
