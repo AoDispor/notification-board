@@ -6,6 +6,10 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="styles.css"/>
+	<!-- SCRIPTS -->
+    <script src="jquery-3.1.1-dist/jquery-3.1.1.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
     <title>Ao Dispor | Notification Board</title>
   </head>
 
@@ -35,8 +39,14 @@
               <input class="form-control" type="text" name="notification" value="">
 
               <!-- Postal codes to send (must be dynamic)-->
-              <label for="zip1-1">Zip1</label>
-              <input class="form-control" type="text" name="postalCodes[0]" value="">
+              <!-- Postal codes to send (must be dynamic)-->
+              <div id="zip-codes">
+                <div id="zip-template">
+                  <label for="zip1-1">Zip 1</label>
+                  <input class="form-control" type="text" name="postalCodes[0]" value=""/>
+                </div>
+              </div>
+			  
               <button id="postal-button" class="btn btn-success" type="button" name="button"> + Add Postal Code </button>
 			  <br>
 			  <button class="btn btn-info" type="submit" name="button" > Send! </button>
@@ -81,9 +91,4 @@
     </div>
 
   </body>
-
-  <!-- SCRIPTS -->
-  <script src="jquery-3.1.1-dist/jquery-3.1.1.min.js"></script>
-  <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-
 </html>
