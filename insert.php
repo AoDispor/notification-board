@@ -51,4 +51,6 @@ foreach( $postalCodes as $postalCode ) {
 	$stmt->bindParam(':cod', $postalCode, PDO::PARAM_INT);
 	$stmt->execute();	
 }	
+
+header( "Location: index.php" );
 ?>
