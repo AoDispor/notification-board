@@ -4,9 +4,9 @@ $( document ).ready(function() {
 
   $('#postal-button').click(function() {
     numOfZips++
-    template = $($('#zip-template').html())
-    $(template[0]).html('Zip ' + numOfZips)
-    $(template[2]).attr('name','zip[]')
+    template = $('#zip-template').clone(true,true)
+    template.children('label').html('Zip ' + numOfZips)
+    template.children('input').attr('name','zip[]')
     template.css("display","none")
     $('#zip-codes').append(template)
     template.slideDown('fast')
