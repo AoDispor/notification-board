@@ -9,7 +9,7 @@ function show_msg()
 	{	
 		echo '<br>';
 		echo '<div id="notebox">';
-		echo 'some message';//$_SESSION["info_msg"];
+		echo $_SESSION["info_msg"];
 		echo '</div>';
 		$_SESSION["info_msg"]=null;
 	}
@@ -58,7 +58,6 @@ function show_msg()
               <input class="form-control" type="text" name="notification" value="">
 
               <!-- Postal codes to send (must be dynamic)-->
-              <!-- Postal codes to send (must be dynamic)-->
               <div id="zip-codes">
                 <div id="zip-template">
                   <label for="zip1-1">Zip 1</label>
@@ -71,16 +70,6 @@ function show_msg()
 			  <button class="btn btn-info" type="submit" name="button" > Send! </button>
             </form>
           </div>
-
-          <!-- ACTION INPUT (SEND, SAVE)-->
-          <!--div id="button-panel">
-            <div id="send-panel">
-              <button class="btn btn-info" type="button" name="button"> Send! </button>
-            </div>
-            <div id="save-panel">
-              <button class="btn btn-warning" type="button" name="button"> Save </button>
-            </div>
-          </div-->
 
         </div>
 
