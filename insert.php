@@ -1,7 +1,13 @@
 <?php
+session_start();
+include('note_sender.php');
 
 //validate date	
 $current_datetime = date("Y-m-d H:i:s");
+
+//validate notification
+//???
+$notification = $_POST['notification'];
 
 //validate username
 // ???
@@ -10,8 +16,10 @@ $phoneid = $_POST['phone-id'];
 //validate postal code
 // ???
 $postalCodes= $_POST['postalCodes'];
-//for{}
-//$postalCode = ???;
+
+//data to be sent
+$data = array('body' => $notification, 'title' => 'Ao Dispor');
+
 
 //after all validation is done connect to DB
 $servername="localhost";
@@ -22,24 +30,24 @@ $port="3306";
 $dbh = new PDO("mysql:host=$servername;port=$port;dbname=$dbname", $username, $password);
 $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	
-//check if postal codes exist
+
+//get all zones and send notification
 foreach( $postalCodes as $postalCode ) {
-	$stmt = $dbh->prepare("SELECT COUNT(*) as count from postalCode where postalCodeId = :cod");
+	$stmt = $dbh->prepare("SELECT gcmToken FROM clientTokens where postalCode = :cod");
 	$stmt->bindParam(':cod', $postalCode, PDO::PARAM_INT);
 	$stmt->execute();
-	$countPostalCode = $stmt->fetch();
-	$postalCodeExists = $countPostalCode['count'];
-	echo $postalCodeExists;
-	if($postalCodeExists<=0)	//if postal code does not exist, create a new entry
-	{
-		$stmt = $dbh->prepare("INSERT INTO postalCode VALUES(:cod)");
-		$stmt->bindParam(':cod', $postalCode, PDO::PARAM_INT);
-		$stmt->execute();
-	}
-}	
+	$tokens = $stmt->fetchAll();
 
-//insert new event
+	foreach( $tokens as $token ) 	
+		if(sendPushNotification($data, $token) === false)
+		{
+			$_SESSION["info_msg"] = "GCM notification failed to send to all (may have sent to some)";
+			header("Location: index.php");
+			exit();
+		}
+}
+
+//insert new notification
 $stmt = $dbh->prepare("INSERT INTO notifications VALUES(NULL, ?,?)");
 $stmt->execute(array($phoneid,$current_datetime));
 $notification_id = $dbh->lastInsertId();
@@ -52,5 +60,6 @@ foreach( $postalCodes as $postalCode ) {
 	$stmt->execute();	
 }	
 
+$_SESSION["info_msg"] = "Notification sent and stored";
 header( "Location: index.php" );
 ?>

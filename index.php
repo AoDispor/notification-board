@@ -1,4 +1,21 @@
-<?php include('list.php')?>
+<?php 
+include('list.php');
+
+session_start();
+
+function show_msg()
+{
+  	if(isset($_SESSION["info_msg"])) 
+	{	
+		echo '<br>';
+		echo '<div id="notebox">';
+		echo 'some message';//$_SESSION["info_msg"];
+		echo '</div>';
+		$_SESSION["info_msg"]=null;
+	}
+}
+
+?>
 <!DOCTYPE html>
 <!-- Notification page. CSS and Bootstrap still needed :( -->
 <html lang="en">
@@ -14,17 +31,19 @@
   </head>
 
   <body class="bg-ao-dispor-2">
-
+  
     <!-- TITLE -->
     <div id="title" class="txt-ao-dispor-1">
       <h1> Ao Dispor | </h1> <h4> Notification Board</h4>
     </div>
 
+	  <?php show_msg();?>
+	
     <!-- MAIN NOTIFICATION PANEL -->
     <div id="main-container" class="container-fluid">
       <div class="panel row">
         <div id="main-panel" class="col-xs-12 col-md-8">
-
+		
           <!-- MAIN NOTIFICATION PANEL TITLE -->
           <div id="main-title" class="txt-ao-dispor-1">
             <h2> Create New Push Notification </h2>
