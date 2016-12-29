@@ -1,12 +1,10 @@
 <?php
 
-$apiKey = 'AIzaSyDN5kBeRswvs1cdj415tZUnXUOcc1DTLC4';
-
 function sendPushNotification($data, $id) {
     // Insert real GCM API key from the Google APIs Console
     // https://code.google.com/apis/console/        
 
-	global $apiKey;
+	$apiKey = 'AIzaSyDN5kBeRswvs1cdj415tZUnXUOcc1DTLC4';
 	
     // Set POST request body
     $post = array(
@@ -38,8 +36,6 @@ function sendPushNotification($data, $id) {
     // Set JSON post data
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post));
 	
-	// echo $headers;
-
 	// Ignore certificate authenticity
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 

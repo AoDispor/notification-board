@@ -39,7 +39,7 @@ foreach( $postalCodes as $postalCode ) {
 	$tokens = $stmt->fetchAll();
 
 	foreach( $tokens as $token ) 	
-		if(sendPushNotification($data, $token) === false)
+		if(sendPushNotification($data, $token['gcmToken']) === false)
 		{
 			$_SESSION["info_msg"] = "GCM notification failed to send to all (may have sent to some)";
 			header("Location: index.php");
